@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Biografia — Levi</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg-grad: radial-gradient(1200px 600px at 50% 30%, rgba(99,102,241,0.18), transparent 30%),
+                 linear-gradient(180deg,#0f172a,#0b1220 60%);
+      --accent:#7c3aed;
+    }
+    html,body { height:100%; }
+    body{
+      margin:0;
+      font-family:Inter, system-ui, Arial;
+      background:var(--bg-grad);
+      color:#e6eef8;
+      -webkit-font-smoothing:antialiased;
+      scroll-behavior:smooth;
+    }
+
+    /* Navbar */
+  .navbar {
+      background: transparent;
+      padding:1rem 2rem;
+    }
+   .navbar.hide {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-60px);
+    transition: all .5s cubic-bezier(.2,.9,.25,1);
+  }
+  .navbar.centered {
+    left: 50%;
+    transform: translateX(-50%) translateY(0);
+    top: 12px;
+    right: auto;
+    width: auto;
+    margin: 0 auto;
+    position: fixed;
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 999;
+    background: rgba(15,23,42,0.92);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+    border-radius: 18px;
+    padding: 0.7rem 2rem;
+    transition: all .5s cubic-bezier(.2,.9,.25,1);
+    
+  }
+  .navbar a {
+      flex-direction: row;
+      align-items: center;
+      text-decoration: none;
+      margin: 0;
+      padding: 0.4rem 0.8rem;
+    }
+
+    .brand { 
+      color: white;
+      font-weight:700;
+      letter-spacing:0.6px;
+      font-size:1.2rem;
+      text-decoration:none;
+      margin-left: 2.5rem;
+      text-shadow: #0b1220;
+       }
+    .brand:hover { 
+      color:var(--accent);
+      text-decoration:none;
+      transition: color .2s ease-in-out;
+      transform: translateZ(-60px) scale(.92);
+     }
+
+    /* Fullscreen hero */
+    .hero {
+      min-height:100vh;
+      display:grid;
+      grid-template-columns: 1fr 420px;
+      align-items:center;
+      gap:2rem;
+      padding:6rem 4rem 4rem;
+    }
+    .hero .title {
+      font-size: clamp(32px, 7vw, 72px);
+      line-height: .95;
+      font-weight:800;
+      color: rgba(255,255,255,0.92);
+      margin-bottom:1rem;
+      text-shadow: 0 8px 40px rgba(2,6,23,0.6);
+    }
+    .hero p.lead { color:rgba(230,238,248,0.8); font-size:1.05rem; max-width:62ch; }
+
+    /* Phone mockup */
+    .phone-wrap {
+      perspective:1400px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:70vh;
+    }
+    .phone {
+      width:320px;
+      height:640px;
+      border-radius:34px;
+      background:linear-gradient(180deg,#0b1220,#0b1530);
+      box-shadow: 0 30px 120px rgba(2,6,23,0.7), inset 0 8px 40px rgba(255,255,255,0.02);
+      transform-style:preserve-3d;
+      transition: transform 0.35s cubic-bezier(.2,.9,.25,1), box-shadow .35s;
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+      overflow:hidden;
+      border: 10px solid rgba(255,255,255,0.03);
+      position:relative;
+    }
+    .phone-screen {
+      width:90%;
+      height:92%;
+      margin-top:18px;
+      border-radius:22px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(0,0,0,0.12));
+      padding:18px;
+      color:#fff;
+      box-sizing:border-box;
+      font-size:14px;
+      transform: translateZ(-60px) scale(.92);
+      transition: transform .35s cubic-bezier(.2,.9,.25,1);
+    }
+
+    /* photo inside phone */
+    .phone-screen img {
+      width:100%;
+      border-radius:14px;
+      display:block;
+      object-fit:cover;
+      height:260px;
+      margin-bottom:12px;
+    }
+
+    /* sections style */
+    section.content {
+      padding: 120px 4rem;
+      background: transparent;
+      color: #dbeafe;
+    }
+    .card-project {
+      border-radius:14px;
+      background: rgba(255,255,255,0.03);
+      border:1px solid rgba(255,255,255,0.04);
+      padding:1.1rem;
+    }
+
+    /* small adjustments */
+    @media(max-width:980px){
+      .hero { grid-template-columns: 1fr; padding-top:5rem; }
+      .phone-wrap{ height:50vh; margin-top:1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- navbar -->
+  <nav class="navbar fixed-top" id="mainNavbar">
+    <div class="container d-flex align-items-center">
+      <a class="brand me-auto" href="biografia.html">Levi Ramos</a>
+      <div class="btn-group" role="group" aria-label="">
+        <a class="btn btn-sm btn-outline-light" href="biografia.html">Biografia</a>
+        <a class="btn btn-sm btn-outline-light" href="curriculo.html">Currículo</a>
+        <a class="btn btn-sm btn-outline-light" href="projetos.html">Projetos</a>
+      
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero / Biografia -->
+  <main>
+    <header class="hero">
+      <div>
+        <div class="tag mb-3" style="color:var(--accent); font-weight:600">DESIGN • DESENVOLVIMENTO WEB</div>
+        <h1 class="title">Vamos juntos do design<br>ao desenvolvimento</h1>
+        <p class="lead">Sou Levi — Tenho 17 anos. Sou estudante da ETEC, pretendo me tornar um desenvolvedor FULL-STACK, faço estagio na empresa PDM como estagiario de logistica(gerenciando o stock).</p>
+        <div class="mt-4">
+          <a href="#more" class="btn btn-outline-light me-2">Saiba mais</a>
+          <a href="projetos.html" class="btn btn-primary">Ver Projetos</a>
+        </div>
+      </div>
+
+      <div class="phone-wrap">
+        <div id="phone" class="phone" aria-hidden="true">
+          <div class="phone-screen">         
+            <img src="../images/PIMG/levi.jpg" alt="foto do autor">
+            <h5 style="margin:0 0 6px 0">Levi Ramos</h5>
+            <small style="opacity:.85;display:block;margin-bottom:8px">Informatica Para Internet- ETEC</small>
+            <p style="font-size:13px;opacity:.9;line-height:1.2">Crio sites e produtos digitais com foco em conversão e performance. Gosto de micro-interações e experiência imersiva.</p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- More content -->
+    <section id="more" class="content">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-md-6">
+            <h3>Sobre mim</h3>
+            <p>Atualmente curso Informatica para Web(ETEC) e Tecnologo em Vendas(ASN), pretendo seguir carreira na area de TI como desenvolvedor FULL-STACK ou em segurança da informação.</p>
+          </div>
+          <div class="col-md-6">
+            <h3>Skills</h3>
+            <ul>
+              <li>FRONT-END( DESIGN, HTML, CSS, JS, FRAMEWORKS)</li>
+              <li>BACK-END (C++, PHP, PYTHON)</li>
+              <li>BD(MYSQL)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Bootstrap + JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // PHONE 3D EFFECT: conforme o usuário rola, traz o phone para frente (vanilla)
+    const phone = document.getElementById('phone');
+
+    // calcula a posição do elemento na viewport
+    function updatePhoneTransform(){
+      const rect = phone.getBoundingClientRect();
+      const vpCenter = window.innerHeight / 2;
+      const elemCenter = rect.top + rect.height / 2;
+      // distância relativa -1 .. 1
+      const rel = (vpCenter - elemCenter) / vpCenter;
+      // limitar
+      const clamped = Math.max(-1, Math.min(1, rel));
+      // usar para controlar translateZ e rotateX
+      const z = 60 + clamped * 120; // de  -60 -> +180
+      const rotX = clamped * 8; // -8..8 deg
+      const rotY = clamped * -6;
+      const scale = 0.94 + (clamped + 1) * 0.03; // slight scale
+      phone.style.transform = `translateZ(${z}px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale(${scale})`;
+      // shadow
+      phone.style.boxShadow = `0 ${30 + (clamped*40)}px ${80 + (Math.abs(clamped)*80)}px rgba(2,6,23,0.75)`;
+      // push screen forward slightly
+      const screen = phone.querySelector('.phone-screen');
+      screen.style.transform = `translateZ(${z - 80}px) scale(${Math.max(0.86, 1 - Math.abs(clamped)*0.06)})`;
+    }
+
+    // observe scroll and resize
+    let ticking = false;
+    function onScroll(){
+      if(!ticking){
+        window.requestAnimationFrame(()=>{
+          updatePhoneTransform();
+          ticking=false;
+        });
+        ticking=true;
+      }
+    }
+    window.addEventListener('scroll', onScroll, {passive:true});
+    window.addEventListener('resize', updatePhoneTransform);
+    // initial
+    updatePhoneTransform();
+
+    // small reveal animations with IntersectionObserver
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          e.target.style.opacity = 1;
+          e.target.style.transform = 'translateY(0)';
+          io.unobserve(e.target);
+        }
+      });
+    }, {threshold:0.12});
+
+    document.querySelectorAll('.content h3, .content p, .content ul').forEach(el=>{
+      el.style.opacity = 0; el.style.transform='translateY(18px)'; el.style.transition='all .6s cubic-bezier(.2,.9,.25,1)';
+      io.observe(el);
+
+      let lastScroll = 0;
+    const navbar = document.getElementById('mainNavbar');
+    window.addEventListener('scroll', function() {
+      const currentScroll = window.pageYOffset;
+      if (currentScroll > 120) {
+        if (currentScroll > lastScroll) {
+          // rolando para baixo: esconde
+          navbar.classList.add('hide');
+          navbar.classList.remove('centered');
+        } else {
+          // rolando para cima: mostra centralizada
+          navbar.classList.remove('hide');
+          navbar.classList.add('centered');
+        }
+      } else {
+        // topo da página: navbar normal
+        navbar.classList.remove('hide');
+        navbar.classList.remove('centered');
+      }
+      lastScroll = currentScroll;
+    });
+    });
+  </script>
+
+</body>
+</html>

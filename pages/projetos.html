@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Projetos — Vanilla</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    :root{
+      --bg-grad: radial-gradient(1200px 600px at 50% 30%, rgba(99,102,241,0.18), transparent 30%),
+                 linear-gradient(180deg,#0f172a,#0b1220 60%);
+      --accent:#7c3aed;
+      --text-black: #0f172a;
+      --text-white: #eaf2ff;
+    }
+
+    body{background:linear-gradient(180deg,#071032,#0b1220); color:#eaf2ff; font-family:Inter,Arial;}
+    .proj-hero{padding:100px 2rem; text-align:center;}
+    .card-proj{background:rgba(255,255,255,0.03); border-radius:12px; border:1px solid rgba(255,255,255,0.04); padding:1rem;}
+    
+  .navbar {
+      background: transparent;
+      padding:1rem 2rem;
+    }
+
+  .navbar a {
+      flex-direction: row;
+      align-items: center;
+      text-decoration: none;
+      margin: 0;
+      padding: 0.4rem 0.8rem;
+    }
+
+    .brand { 
+      color: white;
+      font-weight:700;
+      letter-spacing:0.6px;
+      font-size:1.2rem;
+      text-decoration:none;
+      margin-left: 2.5rem;
+      text-shadow: #0b1220;
+       }
+    .brand:hover { 
+      color:var(--accent);
+      text-decoration:none;
+      transition: color .2s ease-in-out;
+      transform: translateZ(-60px) scale(.92);
+     }
+
+
+  </style>
+</head>
+<body>
+  <nav class="navbar fixed-top">
+    <div class="container d-flex align-items-center">
+      <a class="brand text-white me-auto" href="biografia.html">Levi Ramos</a>
+      <div class="btn-group">
+        <a class="btn btn-sm btn-outline-light" href="biografia.html">Biografia</a>
+        <a class="btn btn-sm btn-outline-light" href="curriculo.html">Currículo</a>
+        <a class="btn btn-sm btn-outline-light active" href="projetos.html">Projetos</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="proj-hero">
+    <h1 style="font-weight:800; font-size:44px">Projetos</h1>
+    <p style="opacity:.9">Alguns trabalhos recentes </p>
+  </header>
+
+  <main class="container pb-5 ">
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card-proj">
+          <h5>MissionAPP</h5>
+          <p>Site para gerenciamento de igrejas.</p>
+          <a class="btn btn-sm btn-outline-light" href="#">Saiba Mais</a>
+        </div>
+      </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
