@@ -15,21 +15,23 @@
 
     body{background:linear-gradient(180deg,#071032,#0b1220); color:#eaf2ff; font-family:Inter,Arial;}
     .proj-hero{padding:100px 2rem; text-align:center;}
-    .card-proj{background:rgba(255,255,255,0.03); border-radius:12px; border:1px solid rgba(255,255,255,0.04); padding:1rem;}
-    
-  .navbar {
+    .card-proj{background:rgba(255,255,255,0.03); border-radius:12px; border:1px solid rgba(255,255,255,0.04); padding:1rem; cursor:pointer; transition: box-shadow .3s, transform .3s;}
+    .card-proj:hover {
+      box-shadow: 0 8px 32px rgba(124,58,237,0.18), 0 4px 16px rgba(0,0,0,0.14);
+      transform: translateY(-4px) scale(1.03);
+      border-color: #a78bfa;
+    }
+    .navbar {
       background: transparent;
       padding:1rem 2rem;
     }
-
-  .navbar a {
+    .navbar a {
       flex-direction: row;
       align-items: center;
       text-decoration: none;
       margin: 0;
       padding: 0.4rem 0.8rem;
     }
-
     .brand { 
       color: white;
       font-weight:700;
@@ -38,28 +40,131 @@
       text-decoration:none;
       margin-left: 2.5rem;
       text-shadow: #0b1220;
-       }
+    }
     .brand:hover { 
       color:var(--accent);
       text-decoration:none;
       transition: color .2s ease-in-out;
       transform: translateZ(-60px) scale(.92);
-     }
+    }
+    .btn-gold {
+      background-color: #e7c60ef5;
+      color: #222;
+      border: none;
+    }
+    .btn-gold:hover {
+      background-color: #e6be00;
+      color: #fff;
+    }
+    body.fade-out {
+      opacity: 0;
+      transition: opacity 0.5s cubic-bezier(.2,.9,.25,1);
+    }
 
+    /* Adicione ao seu <style> */
+.card-preview {
+  position: relative;
+  overflow: visible;
+}
+.preview-modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.preview-content {
+  background: rgba(30,41,59,0.98);
+  color: #eaf2ff;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(124,58,237,0.18);
+  padding: 2rem 1.5rem;
+  min-width: 260px;
+  min-height: 220px;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity .25s, transform .25s;
+  z-index: 10;
+  pointer-events: auto;
+}
+.card-preview.show-preview .preview-content {
+  opacity: 1;
+  transform: scale(1.05);
+  pointer-events: auto;
+}
 
+.nav-preview-link {
+  position: relative;
+}
+.nav-preview {
+  position: absolute;
+  top: 110%;
+  left: 50%;
+  transform: translateX(-50%) scale(0.92);
+  background: rgba(30,41,59,0.98);
+  color: #eaf2ff;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(124,58,237,0.18);
+  padding: 1rem 1.2rem;
+  min-width: 220px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .22s, transform .22s;
+  z-index: 100;
+}
+.nav-preview-link.show-preview .nav-preview {
+  opacity: 1;
+  transform: translateX(-50%) scale(1.04);
+  pointer-events: auto;
+}
+.nav-preview-link.scale-anim {
+  animation: scaleUp .4s cubic-bezier(.2,.9,.25,1) forwards;
+}
+@keyframes scaleUp {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.12); }
+}
   </style>
 </head>
 <body>
-  <nav class="navbar fixed-top">
-    <div class="container d-flex align-items-center">
-      <a class="brand text-white me-auto" href="biografia.html">Levi Ramos</a>
-      <div class="btn-group">
-        <a class="btn btn-sm btn-outline-light" href="biografia.html">Biografia</a>
-        <a class="btn btn-sm btn-outline-light" href="curriculo.html">Currículo</a>
-        <a class="btn btn-sm btn-outline-light active" href="projetos.html">Projetos</a>
-      </div>
+ <nav class="navbar fixed-top">
+  <div class="container d-flex align-items-center">
+    <a class="brand text-white me-auto" href="biografia.html">Levi Ramos</a>
+    <div class="btn-group">
+      <a class="btn btn-sm btn-gold text-dark nav-preview-link" href="biografia.html">
+        Biografia
+        <div class="nav-preview">
+          <div class="nav-preview-content">
+            <h6>Biografia</h6>
+            <p>Conheça a trajetória profissional e pessoal de Levi Ramos.</p>
+          </div>
+        </div>
+      </a>
+      <a class="btn btn-sm btn-gold text-dark nav-preview-link" href="curriculo.html">
+        Currículo
+        <div class="nav-preview">
+          <div class="nav-preview-content">
+            <h6>Currículo</h6>
+            <p>Veja as experiências, formações e habilidades técnicas.</p>
+          </div>
+        </div>
+      </a>
+      <a class="btn btn-sm btn-gold text-dark nav-preview-link" href="projetos.html">
+        Projetos
+        <div class="nav-preview">
+          <div class="nav-preview-content">
+            <h6>Projetos</h6>
+            <p>Confira os principais projetos desenvolvidos.</p>
+          </div>
+        </div>
+      </a>
     </div>
-  </nav>
+  </div>
+</nav>
 
   <header class="proj-hero">
     <h1 style="font-weight:800; font-size:44px">Projetos</h1>
@@ -67,16 +172,140 @@
   </header>
 
   <main class="container pb-5 ">
-    <div class="row g-4">
-      <div class="col-md-4">
-        <div class="card-proj">
-          <h5>MissionAPP</h5>
-          <p>Site para gerenciamento de igrejas.</p>
-          <a class="btn btn-sm btn-outline-light" href="#">Saiba Mais</a>
+<main class="container pb-5 ">
+  <div class="row g-4">
+    <!-- Projeto 1 -->
+    <div class="col-md-4">
+      <div class="card-proj card-preview" tabindex="0">
+        <h5>MissionAPP</h5>
+        <div class="mb-2">
+          <span class="badge bg-primary">PHP</span>
+          <span class="badge bg-warning text-dark">MySQL</span>
+          <span class="badge bg-info text-dark">Bootstrap</span>
+        </div>
+        <p>Site para gerenciamento de igrejas, com cadastro de membros, eventos e relatórios.</p>
+        <a class="btn btn-sm btn-outline-light" href="#">Saiba Mais</a>
+        <a class="btn btn-sm btn-outline-gold" href="https://github.com/seurepo" target="_blank">GitHub</a>
+        <!-- Modal preview -->
+        <div class="preview-modal">
+          <div class="preview-content">
+            <h5>MissionAPP</h5>
+            <p>Gerencie membros, eventos e relatórios de igrejas.</p>
+            <p><b>Tecnologias:</b> PHP, MySQL, Bootstrap</p>
+            <p><b>Status:</b> Em produção</p>
+            <a href="https://github.com/seurepo" target="_blank" class="btn btn-gold">Ver repositório</a>
+          </div>
         </div>
       </div>
-  </main>
+    </div>
+    <!-- Projeto 2: Portfólio -->
+    <div class="col-md-4">
+      <div class="card-proj card-preview" tabindex="0">
+        <h5>Site Portfólio</h5>
+        <div class="mb-2">
+          <span class="badge bg-success">HTML</span>
+          <span class="badge bg-info text-dark">CSS</span>
+          <span class="badge bg-secondary">JS</span>
+        </div>
+        <p>Site pessoal para apresentação de projetos, currículo e contato.</p>
+        <a class="btn btn-sm btn-outline-light" href="#">Saiba Mais</a>
+        <a class="btn btn-sm btn-outline-gold" href="https://github.com/seurepo" target="_blank">GitHub</a>
+        <!-- Modal preview -->
+        <div class="preview-modal">
+          <div class="preview-content">
+            <h5>Site Portfólio</h5>
+            <p>Página pessoal para mostrar projetos, currículo e contato.</p>
+            <p><b>Tecnologias:</b> HTML, CSS, JS</p>
+            <p><b>Status:</b> Finalizado</p>
+            <a href="https://github.com/seurepo" target="_blank" class="btn btn-gold">Ver repositório</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Projeto 3: E-commerce de Roupas -->
+    <div class="col-md-4">
+      <div class="card-proj card-preview" tabindex="0">
+        <h5>E-commerce de Roupas</h5>
+        <div class="mb-2">
+          <span class="badge bg-danger">HTML</span>
+          <span class="badge bg-primary">CSS</span>
+          <span class="badge bg-warning text-dark">js<span>
+        </div>
+        <p>Loja virtual para venda de roupas, com carrinho, pagamentos e painel administrativo.</p>
+        <a class="btn btn-sm btn-outline-light" href="#">Saiba Mais</a>
+        <a class="btn btn-sm btn-outline-gold" href="https://github.com/seurepo" target="_blank">GitHub</a>
+        <!-- Modal preview -->
+        <div class="preview-modal">
+          <div class="preview-content">
+            <h5>E-commerce de Roupas</h5>
+            <p>Loja virtual completa para venda de roupas, com carrinho, pagamentos e painel administrativo.</p>
+            <p><b>Tecnologias:</b> HTML, CSS, JS</p>
+            <p><b>Status:</b> Em desenvolvimento</p>
+            <a href="https://github.com/Meumanolevi/Atividade_etec.git" target="_blank" class="btn btn-gold">Ver repositório</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  document.querySelectorAll('.btn-group a').forEach(link => {
+    link.addEventListener('click', function(e) {
+      if (this.href && this.href.indexOf(location.host) !== -1) {
+        e.preventDefault();
+        document.body.classList.add('fade-out');
+        setTimeout(() => {
+          window.location = this.href;
+        }, 500);
+      }
+    });
+  });
+
+  // Abrir modal ao passar o mouse e fechar ao sair
+  document.querySelectorAll('.card-proj').forEach(card => {
+    let bsModal;
+    const modalId = card.getAttribute('data-bs-target');
+    const modal = document.querySelector(modalId);
+
+    card.addEventListener('mouseenter', function() {
+      if (modal) {
+        bsModal = new bootstrap.Modal(modal);
+        bsModal.show();
+      }
+    });
+    card.addEventListener('mouseleave', function() {
+      if (modal && bsModal) {
+        bsModal.hide();
+      }
+    });
+  });
+
+  // Adicione ao final do arquivo
+document.querySelectorAll('.card-preview').forEach(card => {
+  card.addEventListener('mouseenter', function() {
+    card.classList.add('show-preview');
+  });
+  card.addEventListener('mouseleave', function() {
+    card.classList.remove('show-preview');
+  });
+  card.addEventListener('focus', function() {
+    card.classList.add('show-preview');
+  });
+  card.addEventListener('blur', function() {
+    card.classList.remove('show-preview');
+  });
+});
+
+
+</script>
 </body>
 </html>
+
+
+
+
+
+

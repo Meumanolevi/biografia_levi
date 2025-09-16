@@ -20,7 +20,7 @@
       font-family:Inter, system-ui, Arial;
       background:var(--bg-grad);
       color:#e6eef8;
-      -webkit-font-smoothing:antialiased;
+      -webkit-font-smoothing:antialiased; 
       scroll-behavior:smooth;
     }
 
@@ -156,7 +156,23 @@
       padding:1.1rem;
     }
 
-    /* small adjustments */
+
+    .btn-gold {
+  background-color: #e7c60ef5;
+  color: #222;
+  border: none;
+}
+.btn-gold:hover {
+  background-color: #e6be00;
+  color: #fff;
+}
+
+
+body.fade-out {
+  opacity: 0;
+  transition: opacity 0.5s cubic-bezier(.2,.9,.25,1);
+}
+
     @media(max-width:980px){
       .hero { grid-template-columns: 1fr; padding-top:5rem; }
       .phone-wrap{ height:50vh; margin-top:1.5rem; }
@@ -170,9 +186,9 @@
     <div class="container d-flex align-items-center">
       <a class="brand me-auto" href="biografia.html">Levi Ramos</a>
       <div class="btn-group" role="group" aria-label="">
-        <a class="btn btn-sm btn-outline-light" href="biografia.html">Biografia</a>
-        <a class="btn btn-sm btn-outline-light" href="curriculo.html">Currículo</a>
-        <a class="btn btn-sm btn-outline-light" href="projetos.html">Projetos</a>
+        <a class="btn btn-sm btn-gold text-dark href="biografia.html">Biografia</a>
+        <a class="btn btn-sm btn-gold text-dark" href="curriculo.html">Currículo</a>
+        <a class="btn btn-sm btn-gold text-dark" href="projetos.html">Projetos</a>
       
       </div>
     </div>
@@ -184,7 +200,7 @@
       <div>
         <div class="tag mb-3" style="color:var(--accent); font-weight:600">DESIGN • DESENVOLVIMENTO WEB</div>
         <h1 class="title">Vamos juntos do design<br>ao desenvolvimento</h1>
-        <p class="lead">Sou Levi — Tenho 17 anos. Sou estudante da ETEC, pretendo me tornar um desenvolvedor FULL-STACK, faço estagio na empresa PDM como estagiario de logistica(gerenciando o stock).</p>
+        <p class="lead">Sou Levi — Tenho 17 anos. Sou estudante da ETEC, pretendo me tornar um desenvolvedor FULL-STACK, faço estagio na empresa PDM.</p>
         <div class="mt-4">
           <a href="#more" class="btn btn-outline-light me-2">Saiba mais</a>
           <a href="projetos.html" class="btn btn-primary">Ver Projetos</a>
@@ -306,6 +322,22 @@
       lastScroll = currentScroll;
     });
     });
+
+
+ 
+    document.querySelectorAll('.btn-group a').forEach(link => {
+    link.addEventListener('click', function(e) {
+      // Só anima se for um link interno
+      if (this.href && this.href.indexOf(location.host) !== -1) {
+        e.preventDefault();
+        document.body.classList.add('fade-out');
+        setTimeout(() => {
+          window.location = this.href;
+        }, 500); // tempo igual ao transition
+      }
+    });
+  });
+
   </script>
 
 </body>
